@@ -12,7 +12,10 @@ app.get ('/', function (request, response){
 			console.log ("Apparently something went wrong: " + error)
 		}
 
-		
+		var parsedUsers = JSON.parse(data);
+		console.log ('Total amount of users:' + parsedUsers.length);
+
+		response.render()
 
 	});
 });
