@@ -21,4 +21,20 @@ Create two more routes:
 
 
 Workplan
+prework
+- set up a git repository and make sure that there's a gitignore file and a README
+- initialize node and make sure that I npm'd the essential modules (Jade and Express)
+- set up a basic file structure (src / views / resources)
 
+part 0
+- Download a 'users.json'-file and put it in resources.
+- Create an app.js and put it in src.
+	- make sure that the modules are required.
+		- express / jade 
+	- set up jade
+	- get-request
+		- filesystem/fileread
+		- parsing?
+- Create a jade.file in which the output from the fileread is rendered
+
+Part 1
