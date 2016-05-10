@@ -15,7 +15,7 @@ app.get ('/', function (request, response){
 		var parsedUsers = JSON.parse(data);
 		console.log ('Total amount of users:' + parsedUsers.length);
 
-		response.render()
+		response.render('index', )
 
 	});
 });
