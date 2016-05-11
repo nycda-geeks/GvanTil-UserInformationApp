@@ -36,5 +36,6 @@ part 0
 		- filesystem/fileread
 		- parsing?
 - Create a jade.file in which the output from the fileread is rendered
+- Set up a server
 
 Part 1
