@@ -41,8 +41,8 @@ part 0
 Part 1
 1.1 First route (probably /search)
 	- Create another get-request
-	- Create a jade file with a form with a submit button
 	- Make sure that app.js renders the abovementioned jade search page
+	- Create a jade file with a form with a submit button
 1.2 (probably /search and something dynamic)
 	- Check slides on post request
 	- Find out if I need to use a bodyparser

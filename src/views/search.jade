@@ -3,4 +3,13 @@ html
 	head
 		title User Information App - Search
 	body
-		h1 Sjello
+ 
+block content
+	h1 Enter your search query:
+	h1= Sjellooo
+		form(action="/", method="POST")
+		div.input
+			span.label 
+			input(type="text", name="title")
+		div.actions
+			input(type="submit", value="Search")
