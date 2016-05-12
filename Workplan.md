@@ -50,11 +50,4 @@ Part 1
 	- Create a post request 
 	- Use a conditional in the post request to make sure a name only gets displayed when there's a match
 
-
-
-
-
-
-
-
 Part 2
