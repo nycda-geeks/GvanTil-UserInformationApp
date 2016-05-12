@@ -38,7 +38,7 @@ app.get ('/', function (request, response){ // main get request
 // PART 1.1
 
 app.get('/', function (request, response) {
-	res.render('search');
+	response.render('search');
 });
 
 
