@@ -39,4 +39,22 @@ part 0
 - Set up a server
 
 Part 1
--
+1.1 First route (probably /search)
+	- Create another get-request
+	- Create a jade file with a form with a submit button
+	- Make sure that app.js renders the abovementioned jade search page
+1.2 (probably /search and something dynamic)
+	- Check slides on post request
+	- Find out if I need to use a bodyparser
+	- Create a post request 
+	- Create a jade file
+		- Use a conditional in the jade file to make sure a name only gets di
+
+
+
+
+
+
+
+
+Part 2

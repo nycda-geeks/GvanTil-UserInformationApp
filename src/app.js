@@ -31,6 +31,18 @@ app.get ('/', function (request, response){ // main get request
 	});
 });
 
+//////////////////////
+//Search Bar
+//////////////////////
+
+// PART 1.1
+
+app.get('/', function (request, response) {
+	res.render('search');
+});
+
+
+
 // server set up
 var server = app.listen(3000, function () { 
 	console.log('My User Information App is listening on port: ' + server.address().port);
