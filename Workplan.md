@@ -43,11 +43,12 @@ Part 1
 	- Create another get-request
 	- Make sure that app.js renders the abovementioned jade search page
 	- Create a jade file with a form with a submit button
-1.2 (probably /search)
+	- The submitbutton in the search.jade should redirect to the post-route. See part 1.2
+1.2 (probably /searchresult)
 	- Check slides on post request
 	- Find out if I need to use a bodyparser
 	- Create a post request 
-	- Use a conditional in the jade file to make sure a name only gets di
+	- Use a conditional in the post request to make sure a name only gets displayed when there's a match
 
 
 

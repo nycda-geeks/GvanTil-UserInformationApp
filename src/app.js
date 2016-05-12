@@ -21,7 +21,7 @@ app.get ('/', function (request, response){ // main get request
 		if (error){ // error utility
 			console.log ("Apparently something went wrong: " + error)
 		}
-
+		
 		var parsedUsers = JSON.parse(data); // parsing json file
 		console.log ('Total amount of users:' + parsedUsers.length);
 
@@ -36,32 +36,35 @@ app.get ('/', function (request, response){ // main get request
 //Search Bar
 //////////////////////
 
-// PART 1.1
-app.get ('/search', function (request, response){ // main get request
-	fs.readFile('./users.json', function (error, data){ // readfile users.json file
-		if (error){ // error utility
-			console.log ("Apparently something went wrong: " + error)
-		}
-
-		var parsedUsers = JSON.parse(data); // parsing json file
-		console.log ('Get request to route /search received');
-
-		response.render ('search');
-
-	});
-});
-
-// PART 1.2
-
 // included bodyparser / app.use body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post ('/search', function (request, response){
-	console.log ("post request received")
-	console.log (request.body);
+// PART 1
+//Get part
+app.get('/search', function (request, response) {
+	console.log ("Get request to route /search received")
+	response.render("search");
 });
+
+//Post part
+app.post('/searchresult', function (request, response){
+	fs.readFile('./users.json', function (error, data){
+		if (error){
+			console.log ("Apparently something went wrong" + error)
+		}
+		var parsedUsers = JSON.parse(data);
+		console.log ('The userdatabase is loaded')
+		console.log (parsedUsers.length)
+		for (i = 0; i < parsedUsers.length; i ++){
+		console.log (parsedUsers[0])
+	}
+	});
+		response.send (JSON.stringify(request.body))
+});
+
+//PART 2
 
 // server set up
 var server = app.listen(3000, function () { 
 	console.log('My User Information App is listening on port: ' + server.address().port);
-})
+});
