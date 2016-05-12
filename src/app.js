@@ -4,6 +4,7 @@
 
 var express = require('express'); // loading express
 var fs = require('fs') // loading filesystem
+// var bodyParser = require('body-parser')
 
 var app = express();
 
@@ -40,6 +41,13 @@ app.get ('/', function (request, response){ // main get request
 app.get('/search', function (request, response) {
 	response.render('search');
 });
+
+// // PART 1.2
+
+// // included bodyparser / app.use body parser
+// app.use(bodyParser.urlencoded({ extended: true }));
+
+
 
 
 
