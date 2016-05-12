@@ -49,5 +49,8 @@ Part 1
 	- Find out if I need to use a bodyparser
 	- Create a post request 
 	- Use a conditional in the post request to make sure a name only gets displayed when there's a match
+		- Load search query into variable
+		- 
+	- Display output in new jade file?
 
 Part 2

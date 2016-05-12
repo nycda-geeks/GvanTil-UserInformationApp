@@ -42,7 +42,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // PART 1
 //Get part
 app.get('/search', function (request, response) {
-	console.log ("Get request to route /search received")
+	console.log ("Received Get request")
 	response.render("search");
 });
 
@@ -53,11 +53,12 @@ app.post('/searchresult', function (request, response){
 			console.log ("Apparently something went wrong" + error)
 		}
 		var parsedUsers = JSON.parse(data);
-		console.log ('The userdatabase is loaded')
-		console.log (parsedUsers.length)
+		console.log ('The userdatabase is loaded. There\'s a total of ' + parsedUsers.length + ' users.')
 		for (i = 0; i < parsedUsers.length; i ++){
-		console.log (parsedUsers[0])
-	}
+			if(input == parsedUsers[i].firstname){
+				console.log (parsedUsers[i].firstname)
+			}
+		}
 	});
 		response.send (JSON.stringify(request.body))
 });

@@ -4,8 +4,9 @@ html
 		title User Information App
 	body
 		h2= "Total amount of users: " + users.length
+		a(href='/search') SEARCH
 		each user in users
-			p= "Firstname :" + user.firstname
+			p= "Firstname: " + user.firstname
 			p= "Lastname: " + user.lastname
 			p= "Email: " + user.email
 			br
