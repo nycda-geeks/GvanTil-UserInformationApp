@@ -53,14 +53,22 @@ app.post('/searchresult', function (request, response){
 			console.log ("Apparently something went wrong" + error)
 		}
 		var parsedUsers = JSON.parse(data);
+		var searchQuery = request.body.name
+		var searchResult = []
+
 		console.log ('The userdatabase is loaded. There\'s a total of ' + parsedUsers.length + ' users.')
+		
 		for (i = 0; i < parsedUsers.length; i ++){
-			if(input == parsedUsers[i].firstname){
-				console.log (parsedUsers[i].firstname)
+			if (searchQuery == parsedUsers[i].firstname || searchQuery == parsedUsers[i].lastname){
+				searchResult.push(parsedUsers[i].firstname, parsedUsers[i].lastname, parsedUsers[i].email)
 			}
 		}
+		if (searchResult.length > 0){
+			console.log ('Found a match for the following query: ' + searchQuery)
+			response.send ("Firstname: " + searchResult[0] + "<br>" + "Lastname: " + searchResult[1]+ "<br>" + "Email: " + searchResult[2])
+		}
+		else {response.send("No results were found.")}
 	});
-		response.send (JSON.stringify(request.body))
 });
 
 //PART 2
