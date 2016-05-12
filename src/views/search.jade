@@ -5,9 +5,8 @@ html
 	body
  
 	h1 Enter your search query:
-		form(action="/", method="POST")
+		form(action="/searchresult", method="POST")
 		div.input
-			span.label 
 			input(type="text", name="name")
 		div.actions
 			input(type="submit", value="Search")

@@ -37,9 +37,18 @@ app.get ('/', function (request, response){ // main get request
 //////////////////////
 
 // PART 1.1
+app.get ('/search', function (request, response){ // main get request
+	fs.readFile('./users.json', function (error, data){ // readfile users.json file
+		if (error){ // error utility
+			console.log ("Apparently something went wrong: " + error)
+		}
 
-app.get('/search', function (request, response) {
-	response.render('search');
+		var parsedUsers = JSON.parse(data); // parsing json file
+		console.log ('Get request to route /search received');
+
+		response.render ('search');
+
+	});
 });
 
 // PART 1.2
@@ -47,11 +56,12 @@ app.get('/search', function (request, response) {
 // included bodyparser / app.use body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-
-
+app.post ('/search', function (request, response){
+	console.log ("post request received")
+	console.log (request.body);
+});
 
 // server set up
 var server = app.listen(3000, function () { 
 	console.log('My User Information App is listening on port: ' + server.address().port);
-});
+})
