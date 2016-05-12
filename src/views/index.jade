@@ -1,11 +1,11 @@
 doctype html
 html
 	head
+		title User Information App
 	body
-		h2 Total amount of users:
-		h2= users.length
+		h2= "Total amount of users: " + users.length
 		each user in users
-			p= user.firstname
-			p= user.lastname
-			p= user.email
+			p= "Firstname :" + user.firstname
+			p= "Lastname: " + user.lastname
+			p= "Email: " + user.email
 			br
