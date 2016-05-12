@@ -43,12 +43,11 @@ Part 1
 	- Create another get-request
 	- Make sure that app.js renders the abovementioned jade search page
 	- Create a jade file with a form with a submit button
-1.2 (probably /search and something dynamic)
+1.2 (probably /search)
 	- Check slides on post request
 	- Find out if I need to use a bodyparser
 	- Create a post request 
-	- Create a jade file
-		- Use a conditional in the jade file to make sure a name only gets di
+	- Use a conditional in the jade file to make sure a name only gets di
 
 
 
