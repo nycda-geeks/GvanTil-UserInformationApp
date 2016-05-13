@@ -74,6 +74,10 @@ app.post('/searchresult', function (request, response){
 	});
 });
 
+//////////////////////
+//ADD USER
+//////////////////////
+
 //PART 2
 
 app.get ('/adduser', function (request, response){
@@ -89,10 +93,12 @@ app.post('/', function (request, response){
 			console.log ("apparently something went wrong: " + error)
 		}
 		console.log ('The userdatabase is loaded')
+		console.log(request.body)
 		var parsedUsers = JSON.parse(data);
 		var newUser = {"firstname": request.body.firstname, "lastname": request.body.lastname, "email": request.body.email}
-		console.log(request.body)
 		parsedUsers.push(newUser)
+
+		// Writing new user to users.json
 		fs.writeFile ('./users.json', JSON.stringify(parsedUsers), function(error){
 			if (error){
 				throw error
