@@ -86,10 +86,16 @@ app.post('/', function (request, response){
 		if (error){
 			console.log ("apparently something went wrong: " + error)
 		}
-		var parsedUsers = JSON.parse(data);
 		console.log ('loaded the userdatabase')
-	})
-
+		var parsedUsers = JSON.parse(data);
+		var newUser = {"firstname:": request.body.firstname, "lastname:": request.body.lastname, "email:": request.body.email}
+		parsedUsers.push(newUser)
+		console.log (parsedUsers)
+		response.render ('index', {
+		users: parsedUsers
+		});
+	});
+	
 })
 
 // server set up
