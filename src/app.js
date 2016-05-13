@@ -23,7 +23,8 @@ app.get ('/', function (request, response){ // main get request
 		}
 		
 		var parsedUsers = JSON.parse(data); // parsing json file
-		console.log ('Total amount of users:' + parsedUsers.length);
+		console.log ('Total amount of users: ' + parsedUsers.length);
+		console.log (parsedUsers);
 
 		response.render ('index',{ // rendering parsed data to json file
 			users: parsedUsers
@@ -77,7 +78,8 @@ app.post('/searchresult', function (request, response){
 
 app.get ('/adduser', function (request, response){
 	console.log ("Received Get request")
-	response.render('adduser')
+	response.render('adduser', {
+	});
 })
 
 app.post('/', function (request, response){
@@ -86,16 +88,17 @@ app.post('/', function (request, response){
 		if (error){
 			console.log ("apparently something went wrong: " + error)
 		}
-		console.log ('loaded the userdatabase')
+		console.log ('The userdatabase is loaded')
 		var parsedUsers = JSON.parse(data);
 		var newUser = {"firstname:": request.body.firstname, "lastname:": request.body.lastname, "email:": request.body.email}
 		parsedUsers.push(newUser)
-		console.log (parsedUsers)
-		response.render ('index', {
-		users: parsedUsers
+		fs.writeFile ('./users.json', JSON.stringify(parsedUsers), function(error){
+			if (error){
+				throw error
+			};
 		});
 	});
-	
+	response.redirect ('/')
 })
 
 // server set up
