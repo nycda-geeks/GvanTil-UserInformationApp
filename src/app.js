@@ -90,15 +90,19 @@ app.post('/', function (request, response){
 		}
 		console.log ('The userdatabase is loaded')
 		var parsedUsers = JSON.parse(data);
-		var newUser = {"firstname:": request.body.firstname, "lastname:": request.body.lastname, "email:": request.body.email}
+		var newUser = {"firstname": request.body.firstname, "lastname": request.body.lastname, "email": request.body.email}
+		console.log(request.body)
 		parsedUsers.push(newUser)
 		fs.writeFile ('./users.json', JSON.stringify(parsedUsers), function(error){
 			if (error){
 				throw error
 			};
+			response.render ('index',{ // rendering parsed data to json file
+				users: parsedUsers
+			});
 		});
 	});
-	response.redirect ('/')
+	
 })
 
 // server set up
