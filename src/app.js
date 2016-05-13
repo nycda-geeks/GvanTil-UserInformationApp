@@ -80,6 +80,17 @@ app.get ('/adduser', function (request, response){
 	response.render('adduser')
 })
 
+app.post('/', function (request, response){
+	console.log ('Received Post request')
+	fs.readFile('./users.json', function (error, data){
+		if (error){
+			console.log ("apparently something went wrong: " + error)
+		}
+		var parsedUsers = JSON.parse(data);
+		console.log ('loaded the userdatabase')
+	})
+
+})
 
 // server set up
 var server = app.listen(3000, function () { 
