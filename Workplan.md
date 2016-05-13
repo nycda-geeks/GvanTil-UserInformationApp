@@ -41,7 +41,6 @@ part 0
 Part 1
 1.1 First route (probably /search)
 	- Create another get-request
-	- Make sure that app.js renders the abovementioned jade search page
 	- Create a jade file with a form with a submit button
 	- The submitbutton in the search.jade should redirect to the post-route. See part 1.2
 1.2 (probably /searchresult)
@@ -50,7 +49,11 @@ Part 1
 	- Create a post request 
 	- Use a conditional in the post request to make sure a name only gets displayed when there's a match
 		- Load search query into variable
-		- 
+		- Match variable with users.json
 	- Display output in new jade file?
 
 Part 2
+
+2.1 First route (add user)
+	- Create another get-request
+	- Create a jade file with 3 forms and a submit button

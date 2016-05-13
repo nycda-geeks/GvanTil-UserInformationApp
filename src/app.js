@@ -75,6 +75,12 @@ app.post('/searchresult', function (request, response){
 
 //PART 2
 
+app.get ('/adduser', function (request, respone){
+	console.log ("Received Get request")
+	response.render('adduser')
+})
+
+
 // server set up
 var server = app.listen(3000, function () { 
 	console.log('My User Information App is listening on port: ' + server.address().port);

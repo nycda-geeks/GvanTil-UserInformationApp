@@ -3,8 +3,8 @@ html
 	head
 		title User Information App
 	body
-		h2= "Total amount of users: " + users.length
 		a(href='/search') SEARCH
+		h2= "Total amount of users: " + users.length
 		each user in users
 			p= "Firstname: " + user.firstname
 			p= "Lastname: " + user.lastname
