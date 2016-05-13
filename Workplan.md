@@ -57,3 +57,5 @@ Part 2
 2.1 First route (add user)
 	- Create another get-request
 	- Create a jade file with 3 forms and a submit button
+2.2 second route
+	- Create post-request

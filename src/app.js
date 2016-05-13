@@ -75,7 +75,7 @@ app.post('/searchresult', function (request, response){
 
 //PART 2
 
-app.get ('/adduser', function (request, respone){
+app.get ('/adduser', function (request, response){
 	console.log ("Received Get request")
 	response.render('adduser')
 })
