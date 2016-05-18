@@ -31,8 +31,19 @@ console.log(guitarIndex ("Fender"))
 // example: ['apple', 'orange', 'orange', 'pineapple']
 // 'orange' returns [1,2]
 
+var colorArray = ["orange", "yellow", "green", "blue", "orange", "green", "green"]
 
+function colorFinder (color){
+	var indexArray = []
+	for (var i = 0; i < colorArray.length; i++){
+		if (color == colorArray[i]){
+			indexArray.push (i)
+		}
+	}
+	return indexArray
+}
 
+console.log (colorFinder("green"))
 
 </script>
 
