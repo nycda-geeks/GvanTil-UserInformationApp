@@ -15,22 +15,22 @@
 var nameArray = ["Gijs", "Max", "Michel", "Marjolein"]
 var colorArray = ["orange", "yellow", "green"]
 
-function indexFinder (query, array){
+function index (search, array){
 	var result = '-1'
 	for (var i = 0; i < array.length; i++){
-		if (query == array[i]){
+		if (search === array[i]){
 			result = i
 		}
 	}
-	if (result == '-1'){
-		console.log(query + " not found in array")
+	if (result === '-1'){
+		console.log(search + " not found in array")
 	} else {
-		console.log (query + " is located at " + result)
+		console.log (search + " is located at " + result)
 	}
 }
 
-indexFinder ("Max", nameArray)
-indexFinder ("orange", colorArray)
+index ("Max", nameArray)
+index ("purple", colorArray)
 
 // Part 2	
 // now, write a function that finds all the indexes of where the value is located and returns them in an array, and if nothing is found, returns -1
@@ -48,9 +48,10 @@ function indexFinder (query, array){
 		} 
 	}
 	if (emptyArray.length > 0){
+		console.log (emptyArray.length + " search results found for " + query)
 		console.log (emptyArray)
 
-	} else { console.log ("-1")
+	} else { console.log ("No search results for " + query)
 
 	}
 }
