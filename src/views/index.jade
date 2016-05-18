@@ -2,9 +2,12 @@ doctype html
 html
 	head
 		title User Information App
+		link(rel='stylesheet', href='./mystyle.css')
 	body
-		a(href='/search') SEARCH
-		a(href='/adduser') ADD USER
+		#nav
+			a(href='/') HOME
+			a(href='/search') SEARCH
+			a(href='/adduser') ADD USER
 		h2= "Total amount of users: " + users.length
 		each user in users
 			p= "Firstname: " + user.firstname
