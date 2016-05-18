@@ -2,9 +2,11 @@ doctype html
 html
 	head
 		title User Information App - Add User
+		link(href='style.css', rel='stylesheet')
 	body
-		a(href='/') HOME
-		a(href='/search') SEARCH
+		#nav
+			a(href='/') HOME
+			a(href='/search') SEARCH
 		h1 Add new user:
 		form(action="/", method="post")
 				div.input
