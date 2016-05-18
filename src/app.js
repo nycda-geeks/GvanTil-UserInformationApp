@@ -17,7 +17,7 @@ app.set('view engine', 'pug');
 ////////////////////////
 
 app.get ('/', function (request, response){ // main get request
-	fs.readFile('./users.json', function (error, data){ // readfile users.json file
+	fs.readFile('./resources/users.json', function (error, data){ // readfile users.json file
 		if (error){ // error utility
 			console.log ("Apparently something went wrong: " + error)
 		}
@@ -49,7 +49,7 @@ app.get('/search', function (request, response) {
 
 //Post part
 app.post('/searchresult', function (request, response){
-	fs.readFile('./users.json', function (error, data){
+	fs.readFile('./resources/users.json', function (error, data){
 		if (error){
 			console.log ("Apparently something went wrong" + error)
 		}
@@ -88,7 +88,7 @@ app.get ('/adduser', function (request, response){
 
 app.post('/', function (request, response){
 	console.log ('Received Post request')
-	fs.readFile('./users.json', function (error, data){
+	fs.readFile('./resources/users.json', function (error, data){
 		if (error){
 			console.log ("apparently something went wrong: " + error)
 		}
