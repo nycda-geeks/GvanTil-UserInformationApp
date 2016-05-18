@@ -12,19 +12,25 @@
 // 'orange' returns '1'
 // 'durian' returns '-1'
 
-var array = ["Fender", "Gibson", "Rickenbacker", "PRS"]
+var nameArray = ["Gijs", "Max", "Michel", "Marjolein"]
+var colorArray = ["orange", "yellow", "green"]
 
-function guitarIndex (guitar){
-	var query = '-1'
+function indexFinder (name, array){
+	var result = '-1'
 	for (var i = 0; i < array.length; i++){
-		if (guitar == array[i]){
-			query = i
+		if (name == array[i]){
+			result = i
 		}
 	}
-	return query 
+	if (result == '-1'){
+		console.log(name + " not found in array")
+	} else {
+		console.log (name + " is located at " + result)
+	}
 }
 
-console.log(guitarIndex ("Fender"))
+indexFinder ("Max", nameArray)
+indexFinder ("orange", colorArray)
 
 // Part 2	
 // now, write a function that finds all the indexes of where the value is located and returns them in an array, and if nothing is found, returns -1
