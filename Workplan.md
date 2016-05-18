@@ -58,4 +58,4 @@ Part 2
 	- Create another get-request
 	- Create a jade file with 3 forms and a submit button
 2.2 second route
-	- Create post-request
+	- Create post-request that redirects to the first route
