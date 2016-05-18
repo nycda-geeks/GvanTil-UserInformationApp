@@ -12,7 +12,19 @@
 // 'orange' returns '1'
 // 'durian' returns '-1'
 
+var array = ["Fender", "Gibson", "Rickenbacker", "PRS"]
 
+function guitarIndex (guitar){
+	var query = '-1'
+	for (var i = 0; i < array.length; i++){
+		if (guitar == array[i]){
+			query = i
+		}
+	}
+	return query 
+}
+
+console.log(guitarIndex ("Fender"))
 
 // Part 2	
 // now, write a function that finds all the indexes of where the value is located and returns them in an array, and if nothing is found, returns -1
