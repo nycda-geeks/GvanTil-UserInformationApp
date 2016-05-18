@@ -15,17 +15,17 @@
 var nameArray = ["Gijs", "Max", "Michel", "Marjolein"]
 var colorArray = ["orange", "yellow", "green"]
 
-function indexFinder (name, array){
+function indexFinder (query, array){
 	var result = '-1'
 	for (var i = 0; i < array.length; i++){
-		if (name == array[i]){
+		if (query == array[i]){
 			result = i
 		}
 	}
 	if (result == '-1'){
-		console.log(name + " not found in array")
+		console.log(query + " not found in array")
 	} else {
-		console.log (name + " is located at " + result)
+		console.log (query + " is located at " + result)
 	}
 }
 
@@ -38,18 +38,24 @@ indexFinder ("orange", colorArray)
 // 'orange' returns [1,2]
 
 var colorArray = ["orange", "yellow", "green", "blue", "orange", "green", "green"]
+var familyArray = ["Gijs", "Max", "Michel", "Max", "Kyle", "Chris", "Gijs", "Gijs"]
 
-function colorFinder (color){
-	var indexArray = []
-	for (var i = 0; i < colorArray.length; i++){
-		if (color == colorArray[i]){
-			indexArray.push (i)
+function indexFinder (query, array){
+	var emptyArray = []
+	for (var i = 0; i < array.length; i++){
+		if (query == array[i]){
+			emptyArray.push (i)
 		} 
 	}
-	return indexArray
+	if (emptyArray.length > 0){
+		console.log (emptyArray)
+
+	} else { console.log ("-1")
+
+	}
 }
 
-console.log (colorFinder("green"))
+indexFinder ("Gijs", familyArray)
 
 </script>
 
