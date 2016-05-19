@@ -10,12 +10,9 @@ var app = express();
 
 // adding jade/pug
 app.set('views', './src/views'); 
-<<<<<<< HEAD:src/app.js
 app.set('view engine', 'pug');
-=======
-app.set('view engine', 'jade');
+
 app.use(express.static('./resources/'));
->>>>>>> c2ed7888c466d4973af3c57acaafb7cd5cc5d7d8:app.js
 
 ////////////////////////
 // Display all users
