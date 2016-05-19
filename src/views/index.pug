@@ -15,9 +15,10 @@ html
 			a(href='/') HOME
 			a(href='/search') SEARCH
 			a(href='/adduser') ADD USER
-		h2= "Total amount of users: " + users.length
-		each user in users
-			p= "Firstname: " + user.firstname
-			p= "Lastname: " + user.lastname
-			p= "Email: " + user.email
-			br
+		#contents
+			h2= "Total amount of users: " + users.length
+			each user in users
+				p= "Firstname: " + user.firstname
+				p= "Lastname: " + user.lastname
+				p= "Email: " + user.email
+				br

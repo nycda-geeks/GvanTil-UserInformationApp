@@ -14,14 +14,14 @@ html
 			a(href='/') HOME
 			a(href='/search') SEARCH
 			a(href='/adduser') ADD USER
-		h1 Add new user:
-		form(action="/", method="post")
-				div.input
-					p Firstname: 
-						input(type="text", name="firstname")
-					p Lastname: 
-						input(type="text", name="lastname")
-					p Email:
-						input(type="text", name="email")
-				div.actions
-					input(type="submit", value="Submit")
+		#contents
+			h1 Add new user:
+			form(action="/", method="post")
+					div.inputs 
+						input(type="text", name="firstname", placeholder="firstname") 
+						br
+						input(type="text", name="lastname", placeholder="lastname")
+						br
+						input(type="text", name="email", placeholder="email")
+					div.actions
+						input(type="submit", value="Submit")
