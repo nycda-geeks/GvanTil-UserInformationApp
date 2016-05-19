@@ -49,7 +49,7 @@ app.get('/search', function (request, response) {
 	response.render("search");
 });
 
-//Post part
+//Post part //searchresult
 app.post('/searchresult', function (request, response){
 	fs.readFile('./resources/users.json', function (error, data){
 		if (error){
@@ -75,6 +75,21 @@ app.post('/searchresult', function (request, response){
 		}
 	});
 });
+
+// API
+app.post('/api', function (request, response){
+	var names = []
+
+	fs.readFile('./resources/users.json', function (error, data){
+		if (error){
+			console.log ("Apparently something went wrong" + error)
+		}
+		var parsedUsers = JSON.parse(data);
+		var searchQuery = request.body.name
+	
+		console.log ('The userdatabase is loaded. There\'s a total of ' + parsedUsers.length + ' users')
+	})
+}
 
 //////////////////////
 //ADD USER
