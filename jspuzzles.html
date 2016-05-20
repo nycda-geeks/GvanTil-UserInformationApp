@@ -13,7 +13,7 @@
 // 'durian' returns '-1'
 
 var nameArray = ["Gijs", "Max", "Michel", "Marjolein"]
-var colorArray = ["orange", "yellow", "green"]
+var colorArray = ["Orange", "Yellow", "Green"]
 
 // function index (search, array){
 // 	var result = '-1'
@@ -32,18 +32,23 @@ var colorArray = ["orange", "yellow", "green"]
 // index ("Max", nameArray)
 // index ("purple", colorArray)
 
+
 function indexTwo (search, array){
-	var string = array.toString()
-	var check = string.indexOf(search)
+
+	var cap = search.charAt(0).toUpperCase() + search.slice(1)
+	// var string = array.toString()
+	var check = array.indexOf(cap)
+	// array.indexOf to find position in array
+	// string.indexOf to find position in string (USE FOR LETTERS)
 
 	if ( check != -1){
-		console.log (search)
+		console.log (check)
 	} else {
 		console.log ("no results")
 	}
 }
 
-indexTwo ("green", colorArray)
+indexTwo ("Yellow", colorArray)
 indexTwo ("Gijs", nameArray)
 
 // Part 2	
@@ -52,25 +57,31 @@ indexTwo ("Gijs", nameArray)
 // 'orange' returns [1,2]
 
 var colorArray = ["orange", "yellow", "green", "blue", "orange", "green", "green"]
-var familyArray = ["Gijs", "Max", "Michel", "Max", "Kyle", "Chris", "Gijs", "Gijs"]
+var familyArray = ["Gijs", "Kyle", "Michel", "Max", "Kyle", "Chris", "Gijs", "Gijs", "Michel"]
+
 
 function indexFinder (query, array){
+	var cap = query.charAt(0).toUpperCase() + query.slice(1)
 	var emptyArray = []
 	for (var i = 0; i < array.length; i++){
-		if (query == array[i]){
+		if (cap == array[i]){
 			emptyArray.push (i)
 		} 
 	}
-	if (emptyArray.length > 0){
-		console.log (emptyArray.length + " search results found for " + query)
+	if (emptyArray.length != 0){
+		console.log (emptyArray.length + " search results found for " + cap)
 		console.log (emptyArray)
 
-	} else { console.log ("No search results for " + query)
+	} else { console.log ("No search results for " + cap)
 
 	}
 }
 
-indexFinder ("Gijs", familyArray)
+indexFinder ("Kyle", familyArray)
+
+
+
+// DO THE SAME FOR AN OBJECT
 
 </script>
 

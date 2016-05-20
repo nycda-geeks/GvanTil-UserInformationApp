@@ -10,12 +10,9 @@ var app = express();
 
 // adding jade/pug
 app.set('views', './src/views'); 
-<<<<<<< HEAD:src/app.js
 app.set('view engine', 'pug');
-=======
-app.set('view engine', 'jade');
+
 app.use(express.static('./resources/'));
->>>>>>> c2ed7888c466d4973af3c57acaafb7cd5cc5d7d8:app.js
 
 ////////////////////////
 // Display all users
@@ -52,7 +49,7 @@ app.get('/search', function (request, response) {
 	response.render("search");
 });
 
-//Post part
+//Post part //searchresult
 app.post('/searchresult', function (request, response){
 	fs.readFile('./resources/users.json', function (error, data){
 		if (error){
@@ -78,6 +75,37 @@ app.post('/searchresult', function (request, response){
 		}
 	});
 });
+
+// API
+app.post('/api', function (request, response){
+	// Creating a variable that contains the searchbar input
+	var userInput  = request.body.search
+	// capitalize userInput
+	var capUserInput = userInput.charAt(0).toUpperCase() + userInput.slice(1)
+	// Creating an empty Array to store results in
+	var result = []
+	// reading the users.json file
+	fs.readFile('./resources/users.json', function (error, data){
+		if (error){
+			console.log ("Apparently something went wrong" + error)
+		}
+		// Creating a variable that contains the parsed data from users.json
+		var parsedUsers = JSON.parse(data);
+		// Creating a for loop to loop through parsedUsers
+		for (i = 0; i < parsedUsers.length; i++){
+			// Creating a conditional to check if userInput matches something in parsedUsers
+			if(parsedUsers[i].firstname.indexOf(capUserInput) > -1 || parsedUsers[i].lastname.indexOf(capUserInput) > -1 || (parsedUsers[i].firstname + " " + parsedUsers[i].lastname).indexOf(capUserInput) > -1 || (parsedUsers[i].lastname + " " + parsedUsers[i].firstname).indexOf(capUserInput) > -1) {
+				result.push(parsedUsers[i].firstname + " " + parsedUsers[i].lastname)
+				}
+			}
+		if (capUserInput == ""){
+			response.send ("")
+		} else {
+			response.send (result)
+		}
+	})
+	
+})
 
 //////////////////////
 //ADD USER
