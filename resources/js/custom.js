@@ -6,9 +6,12 @@ $ (document). ready (function(){
 			search: $(this).val()
 		}
 		console.log (postdata)
-		
+
 		$.post('/api', postdata, function(data){
-			console.log(data)
+				$ ("#autocomplete").empty()
+				for(person in data){
+					$('#autocomplete').append('<option>' + data[person] +'</option>')
+				}
 		})
 
 	})

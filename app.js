@@ -98,7 +98,11 @@ app.post('/api', function (request, response){
 				result.push(parsedUsers[i].firstname + " " + parsedUsers[i].lastname)
 				}
 			}
-		response.send (result)
+		if (capUserInput == ""){
+			response.send ("")
+		} else {
+			response.send (result)
+		}
 	})
 	
 })
