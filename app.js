@@ -80,7 +80,9 @@ app.post('/searchresult', function (request, response){
 app.post('/api', function (request, response){
 	// Creating a variable that contains the searchbar input
 	var userInput  = request.body.search
-	var result = "string"
+	var capUserInput = userInput.charAt(0).toUpperCase() + userInput.slice(1)
+	console.log (capUserInput)
+	var result = "jemoeder"
 	// reading the users.json file
 	fs.readFile('./resources/users.json', function (error, data){
 		if (error){
@@ -88,18 +90,16 @@ app.post('/api', function (request, response){
 		}
 		// Creating a variable that contains the parsed data from users.json
 		var parsedUsers = JSON.parse(data);
-		console.log (parsedUsers.firstname)
-		for (i = 0; i<parsedUsers.length; i++){
-			if (parsedUsers[i].firstname == userInput){
-			console.log (result)
-			} else {
-				console.log("no search result")
+		// Creating a for loop to loop through parsedUsers
+		for (i = 0; i < parsedUsers.length; i++){
+		// Creating a conditional to check if userInput matches something in parsedUsers
+		if(parsedUsers[i].firstname === capUserInput || parsedUsers[i].lastname === capUserInput){
+			console.log ("hello")
 			}
 		}
-		// 
-		
+
 	})
-	response.send (userInput)
+	response.send (result)
 })
 
 //////////////////////
