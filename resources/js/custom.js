@@ -3,12 +3,13 @@ $ (document). ready (function(){
 	$ ('input').keyup (function(){
 		console.log ("Somebody is typing")
 		var postdata = {
-			search: $('input').val()
+			search: $(this).val()
 		}
 		console.log (postdata)
-		// $.post('/api', postdata, function(data){
-		// 	console.log(data)
-		// })
+		
+		$.post('/api', postdata, function(data){
+			console.log(data)
+		})
 
 	})
 });

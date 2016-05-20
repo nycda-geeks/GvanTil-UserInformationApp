@@ -76,20 +76,31 @@ app.post('/searchresult', function (request, response){
 	});
 });
 
-// // API
-// app.post('/api', function (request, response){
-// 	var names = []
-
-// 	fs.readFile('./resources/users.json', function (error, data){
-// 		if (error){
-// 			console.log ("Apparently something went wrong" + error)
-// 		}
-// 		var parsedUsers = JSON.parse(data);
-// 		var searchQuery = request.body.name
-	
-// 		console.log ('The userdatabase is loaded. There\'s a total of ' + parsedUsers.length + ' users')
-// 	})
-// }
+// API
+app.post('/api', function (request, response){
+	// Creating a variable that contains the searchbar input
+	var userInput  = request.body.search
+	var result = "string"
+	// reading the users.json file
+	fs.readFile('./resources/users.json', function (error, data){
+		if (error){
+			console.log ("Apparently something went wrong" + error)
+		}
+		// Creating a variable that contains the parsed data from users.json
+		var parsedUsers = JSON.parse(data);
+		console.log (parsedUsers.firstname)
+		for (i = 0; i<parsedUsers.length; i++){
+			if (parsedUsers[i].firstname == userInput){
+			console.log (result)
+			} else {
+				console.log("no search result")
+			}
+		}
+		// 
+		
+	})
+	response.send (userInput)
+})
 
 //////////////////////
 //ADD USER
