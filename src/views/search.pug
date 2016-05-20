@@ -15,10 +15,10 @@ html
 			a(href='/search') SEARCH
 			a(href='/adduser') ADD USER
 		#contents
-			h1 Enter your search query:
+			h2 Enter your search query:
 				form(action="/searchresult", method="post")
 					div.input
-						input(type="text", name="name", placeholder="Enter firstname or lastname")
+						input(type="text", name="name")
 					div.actions
 						input(type="submit", value="Search")
 		div#autocomplete
