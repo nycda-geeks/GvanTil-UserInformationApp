@@ -80,9 +80,10 @@ app.post('/searchresult', function (request, response){
 app.post('/api', function (request, response){
 	// Creating a variable that contains the searchbar input
 	var userInput  = request.body.search
+	// capitalize userInput
 	var capUserInput = userInput.charAt(0).toUpperCase() + userInput.slice(1)
-	console.log (capUserInput)
-	var result = "jemoeder"
+	// Creating an empty Array to store results in
+	var result = []
 	// reading the users.json file
 	fs.readFile('./resources/users.json', function (error, data){
 		if (error){
@@ -92,14 +93,14 @@ app.post('/api', function (request, response){
 		var parsedUsers = JSON.parse(data);
 		// Creating a for loop to loop through parsedUsers
 		for (i = 0; i < parsedUsers.length; i++){
-		// Creating a conditional to check if userInput matches something in parsedUsers
-		if(parsedUsers[i].firstname === capUserInput || parsedUsers[i].lastname === capUserInput){
-			console.log ("hello")
+			// Creating a conditional to check if userInput matches something in parsedUsers
+			if(parsedUsers[i].firstname.indexOf(capUserInput) > -1 || parsedUsers[i].lastname.indexOf(capUserInput) > -1 || (parsedUsers[i].firstname + " " + parsedUsers[i].lastname).indexOf(capUserInput) > -1 || (parsedUsers[i].lastname + " " + parsedUsers[i].firstname).indexOf(capUserInput) > -1) {
+				result.push(parsedUsers[i].firstname + " " + parsedUsers[i].lastname)
+				}
 			}
-		}
-
+		response.send (result)
 	})
-	response.send (result)
+	
 })
 
 //////////////////////
