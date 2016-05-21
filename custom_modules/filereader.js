@@ -1,11 +1,14 @@
 var fs = require ('fs')
 
-function JSONreader (file){
+var parsedData
+
+function JSONreader (file, callback){
 	fs.readFile (file, function (error, filecontents){
 		if (error){
 			console.log ("Apparently something went wrong " + error)	
 		}
-		console.log (JSON.parse(filecontents))
+		parsedData = JSON.parse(filecontents)
+		callback (parsedData)
 	})
 }
 

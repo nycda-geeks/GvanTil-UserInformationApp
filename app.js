@@ -5,6 +5,7 @@
 var express = require('express'); // loading express
 var fs = require('fs') // loading filesystem
 var bodyParser = require('body-parser')
+var filereader = require('./custom_modules/filereader')
 
 var app = express();
 
@@ -18,22 +19,33 @@ app.use(express.static('./resources/'));
 // Display all users
 ////////////////////////
 
-app.get ('/', function (request, response){ // main get request
-	fs.readFile('./resources/users.json', function (error, data){ // readfile users.json file
-		if (error){ // error utility
-			console.log ("Apparently something went wrong: " + error)
-		}
+// app.get ('/', function (request, response){ // main get request
+// 	fs.readFile('./resources/users.json', function (error, data){ // readfile users.json file
+// 		if (error){ // error utility
+// 			console.log ("Apparently something went wrong: " + error)
+// 		}
 		
-		var parsedUsers = JSON.parse(data); // parsing json file
-		console.log ('Total amount of users: ' + parsedUsers.length);
-		console.log (parsedUsers);
+// 		var parsedUsers = JSON.parse(data); // parsing json file
+// 		console.log ('Total amount of users: ' + parsedUsers.length);
+// 		console.log (parsedUsers);
 
-		response.render ('index',{ // rendering parsed data to json file
-			users: parsedUsers
-		});
+// 		response.render ('index',{ // rendering parsed data to json file
+// 			users: parsedUsers
+// 		});
 
-	});
-});
+// 	});
+// });
+
+app.get ('/', function (request, response){
+	filereader.JSONreader ('./resources/users.json', function (parsedData){
+		console.log ('Total amount of users: ' + parsedData.length)
+		console.log (parsedData);
+		response.render ('index', {
+			users: parsedData
+		})
+	})
+})
+
 
 //////////////////////
 //Search Bar
