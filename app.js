@@ -37,7 +37,7 @@ app.use(express.static('./resources/'));
 // });
 
 app.get ('/', function (request, response){
-	filereader.JSONreader ('./resources/users.json', function (parsedData){
+	filereader.parseJSON ('./resources/users.json', function (parsedData){
 		console.log ('Total amount of users: ' + parsedData.length)
 		console.log (parsedData);
 		response.render ('index', {
@@ -74,7 +74,7 @@ app.post('/searchresult', function (request, response){
 		console.log ('The userdatabase is loaded. There\'s a total of ' + parsedUsers.length + ' users.')
 		
 		for (i = 0; i < parsedUsers.length; i ++){
-			if (searchQuery == parsedUsers[i].firstname || searchQuery == parsedUsers[i].lastname){
+			if (searchQuery == parsedUsers[i].firstname || searchQuery == parsedUsers[i].lastname || searchQuery == (parsedUsers[i].firstname + " " + parsedUsers[i].lastname)){
 				searchResult.push(parsedUsers[i].firstname, parsedUsers[i].lastname, parsedUsers[i].email)
 			}
 		}

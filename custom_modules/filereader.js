@@ -2,7 +2,7 @@ var fs = require ('fs')
 
 var parsedData
 
-function JSONreader (file, callback){
+function reader (file, callback){
 	fs.readFile (file, function (error, filecontents){
 		if (error){
 			console.log ("Apparently something went wrong " + error)	
@@ -12,4 +12,4 @@ function JSONreader (file, callback){
 	})
 }
 
-module.exports.filereader = JSONreader
+module.exports.parseJSON = reader
