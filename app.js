@@ -95,14 +95,17 @@ app.post('/searchresult', function (request, response){
 		var searchResult = []
 		for (i = 0; i < parsedData.length; i ++){
 			if (searchQuery == parsedData[i].firstname || searchQuery == parsedData[i].lastname || searchQuery == (parsedData[i].firstname + " " + parsedData[i].lastname)){
-				searchResult.push(parsedData[i].firstname, parsedData[i].lastname, parsedData[i].email)
+				searchResult.push({"firstname" : parsedData[i].firstname, "lastname" : parsedData[i].lastname, "email" : parsedData[i].email})
 			}
 		}
 		if (searchResult.length > 0){
 			console.log ('Found a match for the following query: ' + searchQuery)
-			response.send ("Firstname: " + searchResult[0] + "<br>" + "Lastname: " + searchResult[1]+ "<br>" + "Email: " + searchResult[2])
+			console.log (searchResult)
+			response.render ('searchresults', {
+				matches: searchResult
+			})
 		}
-		else {response.render('nosearchresult',{
+		else {response.render('nosearchresults',{
 			searchQuery: searchQuery
 		})
 			console.log ("No matches found for: " + searchQuery)
