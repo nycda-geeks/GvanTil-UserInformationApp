@@ -102,7 +102,9 @@ app.post('/searchresult', function (request, response){
 			console.log ('Found a match for the following query: ' + searchQuery)
 			response.send ("Firstname: " + searchResult[0] + "<br>" + "Lastname: " + searchResult[1]+ "<br>" + "Email: " + searchResult[2])
 		}
-		else {response.send("No results were found.")
+		else {response.render('nosearchresult',{
+			searchQuery: searchQuery
+		})
 			console.log ("No matches found for: " + searchQuery)
 		}
 	})
