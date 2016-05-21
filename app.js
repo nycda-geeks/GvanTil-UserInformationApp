@@ -62,20 +62,40 @@ app.get('/search', function (request, response) {
 });
 
 //Post part //searchresult
+// app.post('/searchresult', function (request, response){
+// 	fs.readFile('./resources/users.json', function (error, data){
+// 		if (error){
+// 			console.log ("Apparently something went wrong" + error)
+// 		}
+// 		var parsedUsers = JSON.parse(data);
+// 		var searchQuery = request.body.name
+// 		var searchResult = []
+
+// 		console.log ('The userdatabase is loaded. There\'s a total of ' + parsedUsers.length + ' users.')
+		
+// 		for (i = 0; i < parsedUsers.length; i ++){
+// 			if (searchQuery == parsedUsers[i].firstname || searchQuery == parsedUsers[i].lastname || searchQuery == (parsedUsers[i].firstname + " " + parsedUsers[i].lastname)){
+// 				searchResult.push(parsedUsers[i].firstname, parsedUsers[i].lastname, parsedUsers[i].email)
+// 			}
+// 		}
+// 		if (searchResult.length > 0){
+// 			console.log ('Found a match for the following query: ' + searchQuery)
+// 			response.send ("Firstname: " + searchResult[0] + "<br>" + "Lastname: " + searchResult[1]+ "<br>" + "Email: " + searchResult[2])
+// 		}
+// 		else {response.send("No results were found.")
+// 			console.log ("No matches found for: " + searchQuery)
+// 		}
+// 	});
+// });
+
 app.post('/searchresult', function (request, response){
-	fs.readFile('./resources/users.json', function (error, data){
-		if (error){
-			console.log ("Apparently something went wrong" + error)
-		}
-		var parsedUsers = JSON.parse(data);
+	filereader.parseJSON ('./resources/users.json', function (parsedData){
+		console.log ("received a POST request")
 		var searchQuery = request.body.name
 		var searchResult = []
-
-		console.log ('The userdatabase is loaded. There\'s a total of ' + parsedUsers.length + ' users.')
-		
-		for (i = 0; i < parsedUsers.length; i ++){
-			if (searchQuery == parsedUsers[i].firstname || searchQuery == parsedUsers[i].lastname || searchQuery == (parsedUsers[i].firstname + " " + parsedUsers[i].lastname)){
-				searchResult.push(parsedUsers[i].firstname, parsedUsers[i].lastname, parsedUsers[i].email)
+		for (i = 0; i < parsedData.length; i ++){
+			if (searchQuery == parsedData[i].firstname || searchQuery == parsedData[i].lastname || searchQuery == (parsedData[i].firstname + " " + parsedData[i].lastname)){
+				searchResult.push(parsedData[i].firstname, parsedData[i].lastname, parsedData[i].email)
 			}
 		}
 		if (searchResult.length > 0){
@@ -85,8 +105,8 @@ app.post('/searchresult', function (request, response){
 		else {response.send("No results were found.")
 			console.log ("No matches found for: " + searchQuery)
 		}
-	});
-});
+	})
+})
 
 // API
 app.post('/api', function (request, response){
