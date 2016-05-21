@@ -132,7 +132,7 @@ app.post('/', function (request, response){
 		parsedUsers.push(newUser)
 
 		// Writing new user to users.json
-		fs.writeFile ('./users.json', JSON.stringify(parsedUsers), function(error){
+		fs.writeFile ('./resources/users.json', JSON.stringify(parsedUsers), function(error){
 			if (error){
 				throw error
 			};
