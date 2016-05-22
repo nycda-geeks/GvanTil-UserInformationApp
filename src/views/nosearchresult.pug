@@ -1,0 +1,18 @@
+doctype html
+html
+	head
+		title User Information App
+		// jQuery and custom js file
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js")
+		script(src="js/custom.js") 
+
+		// stylesheets
+		link(rel='stylesheet', href='css/bootstrap.css')
+		link(rel='stylesheet', href='css/mystyle.css')
+	body
+		#nav
+			a(href='/') HOME
+			a(href='/search') SEARCH
+			a(href='/adduser') ADD USER
+		#contents
+			h2= "No results were found for " + searchQuery 

@@ -1,0 +1,24 @@
+doctype html
+html
+	head
+		title User Information App
+		// jQuery and custom js file
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js")
+		script(src="js/custom.js") 
+
+		// stylesheets
+		link(rel='stylesheet', href='css/bootstrap.css')
+		link(rel='stylesheet', href='css/mystyle.css')
+	body
+		#nav
+			a(href='/') HOME
+			a(href='/search') SEARCH
+			a(href='/adduser') ADD USER
+		#contents
+			h2= matches.length + " result(s)"
+			each match in matches
+				p= "Firstname: " + match.firstname
+				p= "Lastname: " + match.lastname
+				p= "Email: " + match.email
+				br
+			
